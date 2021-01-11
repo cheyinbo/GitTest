@@ -2,11 +2,24 @@ server:
   port: 8085
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testMybatisPlus?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
-    username: root
-    password: root
     type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://:3306/testMybatisPlus?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+      username: root
+      password: root
+      initial-size: 10    #启动程序时,在连接池中初始化多少个连接
+      max-active: 100     #连接池中最多支持多少个活动会话
+      max-wait: 600000    #程序向连接池请求连接时,超过60秒后认为本次请求失败,将回收该连接,要小于防火墙超时设置
+      min-idle: 10        #回收空闲连接时,将保证至少有10个连接
+      pool-prepared-statements: true    #缓存SQL语句
+      max-pool-prepared-statement-per-connection-size: 20   #最多缓存20条语句
+      time-between-eviction-runs-millis: 60000    #检查空闲连接的频率，单位毫秒, 非正整数时表示不进行检查
+      min-evictable-idle-time-millis: 300000      #池中某个连接的空闲时长达到 N 毫秒后, 连接池在下次检查空闲连接时，将回收该连接,要小于防火墙超时设置
+      testWhileIdle: true   #当程序请求连接，池在分配连接时，是否先检查该连接是否有效。(高效)
+      test-on-borrow: false   #程序 申请 连接时,进行连接有效性检查（低效，影响性能）
+      test-on-return: false   #程序 返还 连接时,进行连接有效性检查（低效，影响性能）
+
   servlet:
     multipart:
       max-file-size: 10MB

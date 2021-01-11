@@ -33,7 +33,7 @@ class DemoApplicationTests {
 //        userUpdateWrapper.eq("id",user.getId());
 //        usermapper.update(user,userUpdateWrapper);
 
-        Page<User> page = new Page<>(1,2);
+        Page<User> page = new Page<>(1,1);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
 
         IPage<User> userIPage = usermapper.selectPage(page,queryWrapper);
