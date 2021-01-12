@@ -3,7 +3,6 @@ package com.example.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -17,13 +16,13 @@ public class NIOTest {
 
     @Test
     public void fileChannel(){
-        FileInputStream fileInputStream = null;
+        RandomAccessFile raf = null;
         try{
             Charset charset = Charset.forName("utf-8");//Java.nio.charset.Charset处理了字符转换问题。它通过构造CharsetEncoder和CharsetDecoder将字符序列转换成字节和逆转换。
             CharsetDecoder decoder = charset.newDecoder();
 
             //也可使用FileInputStream
-            RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Administrator\\Desktop\\test.txt","rw");
+            raf = new RandomAccessFile("C:\\Users\\Administrator\\Desktop\\test.txt","rw");
             FileChannel fileChannel = raf.getChannel();
             //定义缓冲区,分配1024字节空间
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
@@ -51,9 +50,9 @@ public class NIOTest {
         }catch(Exception e){
             e.printStackTrace();
         }finally {
-            if(fileInputStream != null){
+            if(raf != null){
                 try {
-                    fileInputStream.close();
+                    raf.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
