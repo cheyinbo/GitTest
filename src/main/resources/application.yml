@@ -24,7 +24,16 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    #消息模式 true:广播(Topic)，false:队列(Queue),默认时false
+  jms:
+    pub-sub-domain: false
 
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
