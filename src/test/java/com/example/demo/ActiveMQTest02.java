@@ -10,7 +10,6 @@ public class ActiveMQTest02 {
     private static final String USERNAME = ActiveMQConnection.DEFAULT_USER;
     private static final String PASSWORD = ActiveMQConnection.DEFAULT_PASSWORD;
     private static final String BROKEURL = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private static final int SENDNUM = 10;
 
 
     public static void main(String[] args) throws JMSException {
