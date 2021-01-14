@@ -24,16 +24,26 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+  #activemq配置
   activemq:
     broker-url: tcp://localhost:61616
     user: admin
     password: admin
-    #消息模式 true:广播(Topic)，false:队列(Queue),默认时false
+    pool:
+      enabled: true             #true表示使用activeMQ连接池
+      max-connections: 5        #连接池的最大连接数
+      idle-timeout: 30000       #空闲的连接过期时间,默认30秒
+    in-memory: false            #默认代理URL是否应该在内存中。如果指定了显式代理，则忽略此值。
+    close-timeout: 15000        #在考虑结束之前等待的时间
+
   jms:
-    pub-sub-domain: false
+    pub-sub-domain: false       #消息模式 true:广播(Topic)，false:队列(Queue),默认时false
 
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 
 
