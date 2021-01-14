@@ -18,10 +18,10 @@ public class StreamTest {
 
     static {
         users = new ArrayList<>();
-        User user1 = new User(1L,"zhangsan",15,"zhangsan@qq,com");
-        User user2 = new User(2L,"lisi",30,"zhangsan@qq,com");
-        User user3 = new User(3L,"wangwu",18,"zhangsan@qq,com");
-        User user4 = new User(4L,"zhaoliu",12,"zhangsan@qq,com");
+        User user1 = new User(1L,"zhangsan","123",15,"zhangsan@qq,com");
+        User user2 = new User(2L,"lisi","456",30,"zhangsan@qq,com");
+        User user3 = new User(3L,"wangwu","123",18,"zhangsan@qq,com");
+        User user4 = new User(4L,"zhaoliu","123",12,"zhangsan@qq,com");
         users.add(user1);
         users.add(user2);
         users.add(user3);

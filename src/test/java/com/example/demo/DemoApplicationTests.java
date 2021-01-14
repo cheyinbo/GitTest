@@ -1,10 +1,8 @@
 package com.example.demo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.entity.User;
-import com.example.demo.mapper.Usermapper;
+import com.example.demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +14,7 @@ import java.io.FileNotFoundException;
 class DemoApplicationTests {
 
     @Autowired
-    private Usermapper usermapper;
+    private UserMapper usermapper;
 
     @Test
     public void testMybatisPlus(){
@@ -24,20 +22,21 @@ class DemoApplicationTests {
 //        for (User user:users) {
 //            System.out.println(user);
 //        }
-//        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("name","zhangsan");
-//        User user = usermapper.selectOne(queryWrapper);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name","cheyinbo").eq("password","123");
+        User user = usermapper.selectOne(queryWrapper);
+        System.out.println(user);
 //
 //        UpdateWrapper<User> userUpdateWrapper = new UpdateWrapper<>();
 //        userUpdateWrapper.set("name","cheyinbo");
 //        userUpdateWrapper.eq("id",user.getId());
 //        usermapper.update(user,userUpdateWrapper);
 
-        Page<User> page = new Page<>(1,1);
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-
-        IPage<User> userIPage = usermapper.selectPage(page,queryWrapper);
-        System.out.println(userIPage);
+//        Page<User> page = new Page<>(1,1);
+//        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+//
+//        IPage<User> userIPage = usermapper.selectPage(page,queryWrapper);
+//        System.out.println(userIPage);
 
     }
 

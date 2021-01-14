@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,14 +13,14 @@ import java.util.Date;
 @RestController
 public class UploadController {
 
-    @Value("${name}")
-    private String path;
-
-    @RequestMapping("/helloUpload")
-    public String hello(){
-        System.out.println(path);
-        return path;
-    }
+//    @Value("${name}")
+//    private String path;
+//
+//    @RequestMapping("/helloUpload")
+//    public String hello(){
+//        System.out.println(path);
+//        return path;
+//    }
 
 
     /**
