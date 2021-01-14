@@ -5,6 +5,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class TokenInterceptor implements HandlerInterceptor {
 
@@ -21,6 +23,23 @@ public class TokenInterceptor implements HandlerInterceptor {
             }
         }
         System.out.println("token不正确");
+        returnJson(response,"{\"code\":400,\"msg\":\"token不正确!\"}");
         return false;
+    }
+
+    /*返回客户端数据*/
+    private void returnJson(HttpServletResponse response, String json) throws Exception{
+        PrintWriter writer = null;
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=utf-8");
+        try {
+            writer = response.getWriter();
+            writer.print(json);
+
+        } catch (IOException e) {
+        } finally {
+            if (writer != null)
+                writer.close();
+        }
     }
 }

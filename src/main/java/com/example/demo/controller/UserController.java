@@ -32,8 +32,6 @@ public class UserController {
                 token = JwtsUtils_02.getToken(user);
                 maps.put("token",token);
             }
-
-
         }catch(RuntimeException e){
             e.printStackTrace();
         }
