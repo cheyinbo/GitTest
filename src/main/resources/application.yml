@@ -40,9 +40,16 @@ spring:
   jms:
     pub-sub-domain: false       #消息模式 true:广播(Topic)，false:队列(Queue),默认时false
 
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+
+
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true         #开启二级缓存
   mapper-locations: classpath:com.example.demo.mapper/*.xml
   type-aliases-package: com.example.demo.entity
 

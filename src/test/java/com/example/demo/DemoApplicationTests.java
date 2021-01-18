@@ -6,8 +6,10 @@ import com.example.demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.ResourceUtils;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.DigestUtils;
 
+import javax.annotation.Resource;
 import java.io.FileNotFoundException;
 
 @SpringBootTest
@@ -15,6 +17,13 @@ class DemoApplicationTests {
 
     @Autowired
     private UserMapper usermapper;
+    @Resource
+    private RedisTemplate<String,Object> redisTemplate;
+
+    @Test
+    public void testRedis(){
+        redisTemplate.opsForValue().set("name","cheche");
+    }
 
     @Test
     public void testMybatisPlus(){
@@ -42,7 +51,8 @@ class DemoApplicationTests {
 
     @Test
     public void testM() throws FileNotFoundException {
-        System.out.println(ResourceUtils.getURL("classpath:").getPath());
+//        System.out.println(ResourceUtils.getURL("classpath:").getPath());
+        System.out.println(DigestUtils.md5DigestAsHex("123".getBytes()));
     }
 
     public int findRepeatNumber(int[] nums) {
