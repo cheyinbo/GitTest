@@ -43,7 +43,23 @@ class DemoApplicationTests {
     @Test
     public void testM() throws FileNotFoundException {
         System.out.println(ResourceUtils.getURL("classpath:").getPath());
+    }
 
+    public int findRepeatNumber(int[] nums) {
+        int[] arr = new int[nums.length];
+        for(int i = 0;i < arr.length;i++){
+            arr[i] = -1;
+        }
+        int result = -1;
+        for(int i = 0;i<nums.length;i++){
+            if(arr[nums[i]] == -1){
+                arr[nums[i]] = nums[i];
+            }else{
+                result = nums[i];
+                break;
+            }
+        }
+        return result;
     }
 
 

@@ -43,6 +43,8 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com.example.demo.mapper/*.xml
+  type-aliases-package: com.example.demo.entity
 
 
 
