@@ -49,8 +49,9 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    cache-enabled: true         #开启二级缓存
-  mapper-locations: classpath:com.example.demo.mapper/*.xml
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.demo.entity
 
 

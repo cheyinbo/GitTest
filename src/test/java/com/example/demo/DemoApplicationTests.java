@@ -22,7 +22,7 @@ class DemoApplicationTests {
 
     @Test
     public void testRedis(){
-        redisTemplate.opsForValue().set("name","cheche");
+//        redisTemplate.opsForValue().set("name","cheche");
     }
 
     @Test
